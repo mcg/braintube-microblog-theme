@@ -1,0 +1,30 @@
+{{ define "main" }}
+	<main class="content" role="main">
+   <h3 class="post-group">Categories</h3>
+	{{ $list := ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+	{{ if gt (len $list) 0 }}
+		<div class="archive-categories">
+			{{ range $list }}
+				<a class="archive-category-name" href="{{ .Permalink }}">{{ .Title }}</a>
+			{{ end }}
+		</div>
+	{{ end }}
+  
+  {{ $posts := where site.RegularPages "Type" "post" }}
+  
+  {{ $grouped := $posts.GroupByDate "2006-01-02" }}
+  {{ range $grouped }}
+  {{ $thedate := (time .Key) }}
+  <h3 class="post-group"> {{ $thedate.Format "January 2, 2006" }}</h3>
+    {{ range .Pages.Reverse }}
+      {{ if eq .Type "post" }}
+  		<p class="h-entry">
+  			<a href="{{ .Permalink }}" class="u-url archive-meta"><span class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "15:04" }}</span></a>:
+  			<span class="p-name"><b>{{ .Title }}</b></span> 
+  			<span class="p-summary">{{ .Summary | truncate 300 }}</span>
+  		</p>
+  	{{ end }}
+    {{ end }}
+  {{ end }}
+  </main>
+{{ end }}

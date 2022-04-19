@@ -1,0 +1,17 @@
+{{ define "main" }}
+	{{ $posts := where site.RegularPages "Type" "post" }}
+	{{ $grouped := $posts.GroupByDate "2006-01-02" }}
+	{{ $paginated := (.Paginate ($grouped)) }}
+	<main class="content" role="main">
+		{{ range $paginated.PageGroups }}
+		{{ $thedate := (time .Key) }}
+		<h3 class="post-group"> {{ $thedate.Format "January 2, 2006" }}</h3>
+  		{{ range .Pages.Reverse }}
+    	{{ if eq .Type "post" }}
+      		{{ .Render "article" }}
+    {{- end }}
+  {{ end }}
+{{ end }}
+</div>
+{{ partial "pagination.html" . }}
+{{ end }}

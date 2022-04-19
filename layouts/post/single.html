@@ -1,0 +1,36 @@
+{{ define "body_class" }}post-template{{ end }}
+{{ define "main" }}
+<main class="content" role="main">
+  <article class="post h-entry">
+    <header class="post-header">
+      {{ with .Params.image }}
+        <img src="{{ . }}"></img>
+      {{ end }}
+      <h2 class="post-title p-name">{{ .Title }}</h2>
+      <section class="post-meta">
+        <time class="post-date dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format (.Site.Params.dateFormatToUse | default "January 02, 2006") }}</time>
+ 		<a class="u-url" href="{{ .Permalink }}" style="display: none;"></a>
+		<!-- Start : Code for adding categories -->
+		{{ with .Params.categories  }}
+          {{ range . }}
+          {{ $name := . }}
+            {{ with $.Site.GetPage "taxonomy" (printf "categories/%s" $name) | default ($.Site.GetPage "taxonomy" (printf "categories/%s" ($name | urlize))) }}
+            <a href="{{ .Permalink }}" class="p-category" >#{{ $name }}</a>
+            {{ end -}}
+          {{ end }}
+      	{{ end }}
+		<!-- End : Code for adding categories -->
+      </section>
+    </header>
+    <section class="post-content e-content">
+      {{ .Content }}
+    </section>
+    <!--<footer class="post-footer"></footer> -->
+  </article>
+
+{{ if .Site.Params.include_conversation }}
+<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+{{ end }}
+
+</main>
+{{ end }}
