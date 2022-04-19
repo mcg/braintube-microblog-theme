@@ -663,9 +663,10 @@ video {
 }
 
 .microblog_post {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 30px;
   background-color: rgba(149, 149, 149, 0.1);
+  padding: 30px 30px 30px 30px;
+  border-radius: 8px;
 }
 
 .microblog_user {
