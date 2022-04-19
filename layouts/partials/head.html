@@ -43,13 +43,6 @@
 	<link rel="webmention" href="https://micro.blog/webmention" />
 	<link rel="subscribe" href="https://micro.blog/users/follow" />
 
-    <!-- Bigfoot - popover footnotes -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ "assets/bigfoot/dist/bigfoot.js" | relURL }}"></script>
-    <link rel="stylesheet" type="text/css" href="{{ "assets/bigfoot/dist/bigfoot-number.css" | relURL }}" />
-    <script type="text/javascript">
-        $.bigfoot();
-    </script>
     <!-- custom css -->
     {{ range .Site.Params.customCSS }}
     <link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
