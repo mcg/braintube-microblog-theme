@@ -90,9 +90,9 @@ code, tt, pre {
 pre {
 	/*padding: 0 2em;*/
 	line-height: 1.3em;
-	color: #333;
+	color: #d9d9d9;
     padding: 10px 10px;
-    background-color: #F1F0EA;
+    background-color: #2F2F2F;
     word-wrap: break-word;  
 }
 
@@ -665,6 +665,7 @@ video {
 .microblog_post {
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color: rgba(149, 149, 149, 0.1);
 }
 
 .microblog_user {
