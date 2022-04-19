@@ -192,8 +192,14 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 .post-title a {
 	color: var(--font-color) !important;
 	text-decoration: none !important;
+    border-bottom: none;
 }
 
+.post-title a:hover {
+	color: var(--secondary-color) !important;
+	text-decoration: none !important;
+    border-bottom: none;
+}
 a.conversation-on-mb {
     color: var(--primary-color);
     text-decoration: none;
@@ -526,11 +532,11 @@ note {
 	display: none;
 }
 
-a.dt-published {
+a .dt-published {
   color: grey;
 } 
   
-a.dt-published:hover {
+a .dt-published:hover {
   color: var(--secondary-color);
 } 
   
