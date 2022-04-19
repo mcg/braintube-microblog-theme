@@ -509,6 +509,10 @@ note {
 	display: none;
 }
 
+.dt-published {
+    color: grey;
+  }
+
 .reply-mail {
 	margin-bottom: 54px;
     font-family: var(--font-meta);
