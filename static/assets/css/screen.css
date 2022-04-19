@@ -177,6 +177,7 @@ a.read-more, a.read-more:visited, a.archive-meta, a.post-date {
 
 a.read-more:hover, a.archive-meta:hover, a.post-date:hover {
   	color: var(--secondary-color); /*#FC7E0F, #DA1F15, #F17F33 */
+    border-bottom: none;
 }
 
 a.read-more {
@@ -525,10 +526,14 @@ note {
 	display: none;
 }
 
-.dt-published {
-    color: grey;
-  }
-
+a.dt-published {
+  color: grey;
+} 
+  
+a.dt-published:hover {
+  color: var(--secondary-color);
+} 
+  
 .reply-mail {
 	margin-bottom: 54px;
     font-family: var(--font-meta);
